@@ -1,0 +1,29 @@
+{
+    "_cell.aaa.app-clients.get": {
+        "request": {
+            "id": "?number",
+            "appTypeId": "number",
+            "title": "?string",
+            "clientSecret": "?string",
+            "isInactive": "boolean",
+            "createdAtUtc": "?Date",
+            "createdBy": "?number",
+            "modifiedAtUtc": "?Date",
+            "modifiedBy": "?number",
+            "recordDeleted": "?number"
+        },
+        "response": {
+            "id": "?number",
+            "appTypeId": "number",
+            "title": "?string",
+            "clientId": "string",
+            "clientSecret": "?string",
+            "isInactive": "boolean",
+            "createdAtUtc": "?Date",
+            "createdBy": "?number",
+            "modifiedAtUtc": "?Date",
+            "modifiedBy": "?number",
+            "recordDeleted": "?number"
+        }
+    }
+}
