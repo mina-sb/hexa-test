@@ -1,0 +1,8 @@
+{
+    "EnumActivityClasses": {
+        "SYSTEM_ADMINISTRATION": 0
+    },
+    "EnumActors": {
+        "SYSTEM_ADMIN": 0
+    }
+}
