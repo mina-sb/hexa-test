@@ -3,7 +3,14 @@
         "workspaceData": {}
     },
     "blox": {
-      
+        "dropDownsData": {},
+        "variables": { name : ''},
+        "recipeDetail": {
+            "name": "insp-scope.create",
+            "request": {},
+            "response": {},
+            "method": "Get"
+        },
         "customTypes": {},
         "key": 1750060034706
     }
