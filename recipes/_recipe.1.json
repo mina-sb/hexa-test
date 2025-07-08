@@ -4,7 +4,7 @@
     },
     "blox": {
         "dropDownsData": {},
-        "variables": { name : ''},
+        "variables": { "name" : ""},
         "recipeDetail": {
             "name": "insp-scope.create",
             "request": {},
