@@ -1,17 +1,1 @@
-{
-    "blockly": {
-        "workspaceData": {}
-    },
-    "blox": {
-        "dropDownsData": {},
-        "variables": {},
-        "recipeDetail": {
-            "name": "insp-scope.create",
-            "request": {},
-            "response": {},
-            "method": "Get"
-        },
-        "customTypes": {},
-        "key": 1750060034706
-    }
-}
+{"blockly":{"workspaceData":{"blocks":{"languageVersion":0,"blocks":[{"type":"1750060034706:defineRequest_thisRecipe","id":"5^{^r/T%qcNws2hQ2mAI","x":190,"y":50,"extraState":{"pairs":[]}}]}}},"blox":{"dropDownsData":{},"variables":{},"recipeDetail":{"name":"insp-scope.create","request":{},"response":{},"method":"Get"},"customTypes":{},"key":1750060034706}}
