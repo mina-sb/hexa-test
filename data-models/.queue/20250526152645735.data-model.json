@@ -1,0 +1,3792 @@
+{
+    "tables": [
+        {
+            "name": "DataSyncSessions",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Actor",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Status",
+                    "type": "TINYINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Message",
+                    "type": "LONGTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_f917c4e55f1c50a38be771fd570bab45",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "DataSyncInfo",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "SessionId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "EntityName",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "SyncedUpToRecords",
+                    "type": "INT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "TotalSyncedRecords",
+                    "type": "INT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "SourceLastModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "DestUpdateStartedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "DestModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_cb1c216ae0ae597d93db692a4eb20d3d",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_ebe464ed0181597a92396c8fa68d514f",
+                    "type": "INDEX",
+                    "columns": [
+                        "SessionId"
+                    ]
+                },
+                {
+                    "name": "fk_6c37e5e86e455ba891fa82505b92e6f7",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "SessionId"
+                    ],
+                    "referencedTable": "DataSyncSessions",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "RESTRICT",
+                    "onDelete": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_AppTypes",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Code",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_918a78bddc435445a6a669cf4176ccea",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_AppClients",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "AppTypeId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "ClientId",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "ClientSecret",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "IsInactive",
+                    "type": "TINYINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_ad8a1f6f9cf75f1bb1611fb7d20b9a00",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_1a7a587ecc0d5597b346ed7a276adc56",
+                    "type": "INDEX",
+                    "columns": [
+                        "AppTypeId"
+                    ]
+                },
+                {
+                    "name": "unq_94ef806baa2457d2a433da52dfe07725",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "ClientId"
+                    ]
+                },
+                {
+                    "name": "fk_1827405acb205be6a3ce66d25810972f",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "AppTypeId"
+                    ],
+                    "referencedTable": "_AAA_AppTypes",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_AppPermissions",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CodeUri",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_8324a1a6b0325be6bbffb41cad3c5181",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "unq_7f5d7f9300cb5b4e9d15bd259aadea0d",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "CodeUri"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_AppTypePermissions",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "AppTypeId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "AppPermissionId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Signature",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_60c7fffa250c5f1eb5f15166f83ad1da",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_b9ba5fb6caec5aeca348230a2bed78b8",
+                    "type": "INDEX",
+                    "columns": [
+                        "AppTypeId"
+                    ]
+                },
+                {
+                    "name": "idx_22e410e836875a66b482ca0fd94fcf54",
+                    "type": "INDEX",
+                    "columns": [
+                        "AppPermissionId"
+                    ]
+                },
+                {
+                    "name": "fk_b56c7a1056d85043b43d37bf24130421",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "AppPermissionId"
+                    ],
+                    "referencedTable": "_AAA_AppPermissions",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                },
+                {
+                    "name": "fk_87f3ca6afb7d5c9789a936b11c7b04e8",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "AppTypeId"
+                    ],
+                    "referencedTable": "_AAA_AppTypes",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_EntityProfile",
+            "configs": {
+                "guidColumnName": "RecordKey",
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PartyCode",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        48
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "Address_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "City",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Province",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Country",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "PostalCode_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Phone_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "FaxNumber_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Email_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "Discriminator",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "RecordKey",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        36
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_6bf591dddab5598fa4d6d88a4ba4538f",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "unq_34c01911e17d5a9aaa4641b090f20c67",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "PartyCode"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_EntityProfileLog",
+            "configs": {
+                "guidColumnName": "RecordKey",
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "EntityProfileId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PartyCode",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        48
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "Address_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "City",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Province",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Country",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "PostalCode_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Phone_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "FaxNumber_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Email_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "Discriminator",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "RecordKey",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        36
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_2e17941b32975a9c964f7e542b26094e",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_c9dd3045207053e1ba116da548f6f8f6",
+                    "type": "INDEX",
+                    "columns": [
+                        "PartyCode"
+                    ]
+                },
+                {
+                    "name": "idx_9c10e40a54c559a399fc382c99e4a43b",
+                    "type": "INDEX",
+                    "columns": [
+                        "EntityProfileId"
+                    ]
+                },
+                {
+                    "name": "fk_85a4d2630f785e0aa4b4bc00f7bcdd40",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "EntityProfileId"
+                    ],
+                    "referencedTable": "_AAA_EntityProfile",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_Scenarios",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Description",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "ActivityClassENUM",
+                    "type": "INT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ClientEntityId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_78fe751f425d55feac79882785bae2dd",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_8a499dbca8665b80b87db70962a54b4e",
+                    "type": "INDEX",
+                    "columns": [
+                        "ClientEntityId",
+                        "ActivityClassENUM"
+                    ]
+                },
+                {
+                    "name": "unq_fb712219ad0957f680a41fb1b4961d25",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "ActivityClassENUM",
+                        "ClientEntityId"
+                    ]
+                },
+                {
+                    "name": "fk_96c9ad1b994f5260a0a5612fee99c796",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "ClientEntityId"
+                    ],
+                    "referencedTable": "_AAA_EntityProfile",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_EntityScenarios",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "EntityId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PermittedActENUM",
+                    "type": "INT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ScenarioId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_1c662ecad79b5ea0b19f9d76b9f2b0de",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_b4f8c5ec590054c4a88a6ca6a5bac48d",
+                    "type": "INDEX",
+                    "columns": [
+                        "ScenarioId"
+                    ]
+                },
+                {
+                    "name": "idx_74d1cc3c33805e3eb68245b088504ef4",
+                    "type": "INDEX",
+                    "columns": [
+                        "EntityId",
+                        "PermittedActENUM",
+                        "ScenarioId"
+                    ]
+                },
+                {
+                    "name": "idx_98413c401e3f5fb9af31949039ff2db3",
+                    "type": "INDEX",
+                    "columns": [
+                        "EntityId"
+                    ]
+                },
+                {
+                    "name": "idx_54e3697a0c625ced9311863212b1711d",
+                    "type": "INDEX",
+                    "columns": [
+                        "PermittedActENUM"
+                    ]
+                },
+                {
+                    "name": "fk_34532e3c334f527487d3f59493f89962",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "ScenarioId"
+                    ],
+                    "referencedTable": "_AAA_Scenarios",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                },
+                {
+                    "name": "fk_7baae7efd65c5c52ae2f0fd55cca9637",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "EntityId"
+                    ],
+                    "referencedTable": "_AAA_EntityProfile",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_EntityRoles",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "EntityId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ActENUM",
+                    "type": "INT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "IsDefault",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_b64c434011ae59d789acef49557fc43b",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_cf754bf622395e7e9b68d1c10a975635",
+                    "type": "INDEX",
+                    "columns": [
+                        "ActENUM"
+                    ]
+                },
+                {
+                    "name": "idx_de5c092884f152cbaf5bbfadbd0fb67e",
+                    "type": "INDEX",
+                    "columns": [
+                        "EntityId",
+                        "ActENUM"
+                    ]
+                },
+                {
+                    "name": "fk_516314666c0b5b79b5e3a92b1f7987fe",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "ActENUM"
+                    ],
+                    "referencedTable": "_AAA_EntityScenarios",
+                    "referencedColumns": [
+                        "PermittedActENUM"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                },
+                {
+                    "name": "fk_820741232917505e9eaf61cff911d85a",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "EntityId"
+                    ],
+                    "referencedTable": "_AAA_EntityScenarios",
+                    "referencedColumns": [
+                        "EntityId"
+                    ],
+                    "onUpdate": "RESTRICT",
+                    "onDelete": "RESTRICT"
+                },
+                {
+                    "name": "fk_7d5eb43373e7529a899d0f5f64f0f0b7",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "EntityId",
+                        "ActENUM"
+                    ],
+                    "referencedTable": "_AAA_EntityScenarios",
+                    "referencedColumns": [
+                        "EntityId",
+                        "PermittedActENUM"
+                    ],
+                    "onUpdate": "RESTRICT",
+                    "onDelete": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_Permissions",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Title",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CodeUri",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_a8a4e9680f5f530b9dc043906ec478a8",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "unq_475ac50eaa3b5947a2f12deacced52de",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "CodeUri"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_EntityRolePermissions",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RoleId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PermissionId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Signature",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_d5ceb12c54dd5eaa953b266101963512",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_f47b158ccaf354198ee75769a2c85336",
+                    "type": "INDEX",
+                    "columns": [
+                        "RoleId"
+                    ]
+                },
+                {
+                    "name": "idx_d34e86ed23f5563d99921392400705b6",
+                    "type": "INDEX",
+                    "columns": [
+                        "PermissionId"
+                    ]
+                },
+                {
+                    "name": "fk_80cefff5d47957b783c90f6159750346",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "RoleId"
+                    ],
+                    "referencedTable": "_AAA_EntityRoles",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                },
+                {
+                    "name": "fk_0b8c184a32f353a9bc14170f4f8e811a",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "PermissionId"
+                    ],
+                    "referencedTable": "_AAA_Permissions",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_ScenarioDataMap",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ScenarioId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "TargetActENUM",
+                    "type": "INT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PermitTableName",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "PermitEntityFieldName",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        64
+                    ]
+                },
+                {
+                    "name": "SourceDataType",
+                    "type": "ENUM",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "values": [
+                        "EntityId",
+                        "BaseTable",
+                        "Join"
+                    ]
+                },
+                {
+                    "name": "EntityId",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "BaseTableName",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "JoinerActENUM",
+                    "type": "INT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "JoinerFieldName",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        64
+                    ]
+                },
+                {
+                    "name": "JoiningTableName",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "TargetFieldName",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        64
+                    ]
+                },
+                {
+                    "name": "CashedQuerySQL",
+                    "type": "MEDIUMTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_3080e4b174f05cb89a0166a0a3a6807e",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_3e967e16ee1c5d79a53ef4995f33badc",
+                    "type": "INDEX",
+                    "columns": [
+                        "JoinerActENUM"
+                    ]
+                },
+                {
+                    "name": "idx_df4f2f80fc765155b60c8c2a309c4f8f",
+                    "type": "INDEX",
+                    "columns": [
+                        "ScenarioId"
+                    ]
+                },
+                {
+                    "name": "idx_75b8d33fa3295c04b9bc0a8497435b18",
+                    "type": "INDEX",
+                    "columns": [
+                        "TargetActENUM"
+                    ]
+                },
+                {
+                    "name": "fk_3181e5806c8950a2a5ec8141ccb7f788",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "ScenarioId"
+                    ],
+                    "referencedTable": "_AAA_Scenarios",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_TableAuditConfigs",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "TableName",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "IsActive",
+                    "type": "TINYINT",
+                    "nullable": false,
+                    "default": "1",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "IsIndividualManaged",
+                    "type": "TINYINT",
+                    "nullable": false,
+                    "default": "0",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                },
+                {
+                    "name": "Signature",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_cd9422527f4659fa8e3dfb2c8303007a",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_TableAudits",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": false,
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": false,
+                "updatedAtColumnName": false,
+                "updatedByColumnName": false,
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "TableName",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "TableRowId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Actor",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Action",
+                    "type": "ENUM",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "values": [
+                        "Create",
+                        "Update",
+                        "Delete"
+                    ]
+                },
+                {
+                    "name": "PreviousData",
+                    "type": "JSON",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CurrentData",
+                    "type": "JSON",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_9aa85b4246d159f3982c82b081f141ff",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_UserInfo",
+            "configs": {
+                "guidColumnName": "RecordKey",
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Firstname_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Lastname_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Username",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Email_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "EmailConfirmed",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CellPhone_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "CellPhoneConfirmed",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "IssuedBy",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "RecordKey",
+                    "type": "CHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        36
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_6491532098bd5fb1800762f529e57bda",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "unq_a37b327ae4265fceaebcfa172aa8e2cd",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "RecordKey"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_AAA_UserEntityRoles",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "UserId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "EntityRoleId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_2e1c367911145777955127d0ae3895f6",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_4228c2a99f1050f49ad2ca13cd8b20fc",
+                    "type": "INDEX",
+                    "columns": [
+                        "UserId"
+                    ]
+                },
+                {
+                    "name": "idx_f818fe0ab9f5539b8c048cbe5ad88279",
+                    "type": "INDEX",
+                    "columns": [
+                        "EntityRoleId"
+                    ]
+                },
+                {
+                    "name": "fk_411d58565d2552e19e469c59d78b7385",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "UserId"
+                    ],
+                    "referencedTable": "_AAA_UserInfo",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                },
+                {
+                    "name": "fk_15dfb14c346d55bda757506cbf287f8f",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "EntityRoleId"
+                    ],
+                    "referencedTable": "_AAA_EntityRoles",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_UserProfile",
+            "configs": {
+                "guidColumnName": "RecordKey",
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "UserId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Address_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "City",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Province",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Country",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Language",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "TimeZone",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Currency",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "SignatureUri",
+                    "type": "LONGTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PhotoUri",
+                    "type": "LONGTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PostalCode_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "BirthDate_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Notification_SMS_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Notification_Phone_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Notification_Email_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "Notification_WhatsApp_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "RecordKey",
+                    "type": "CHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": true,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        36
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_e7e8285de2d95e8a8823192f1db140f7",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "unq_aec6f52ac2f0589da8223f458dd82d9b",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "RecordKey"
+                    ]
+                },
+                {
+                    "name": "unq_69e8c45174a5527c8db826a43e468831",
+                    "type": "UNIQUE",
+                    "columns": [
+                        "UserId"
+                    ]
+                },
+                {
+                    "name": "fk_ea76a6ff530c5f1cb115f1d1a04870c6",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "UserId"
+                    ],
+                    "referencedTable": "_AAA_UserInfo",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                }
+            ]
+        },
+        {
+            "name": "_AAA_UserProfileLog",
+            "configs": {
+                "guidColumnName": "RecordKey",
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "UserProfileId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "UserId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Address_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "City",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Province",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Country",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Language",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "TimeZone",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "Currency",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        32
+                    ]
+                },
+                {
+                    "name": "SignatureUri",
+                    "type": "LONGTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PhotoUri",
+                    "type": "LONGTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "PostalCode_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "BirthDate_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Notification_SMS_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Notification_Phone_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Notification_Email_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        256
+                    ]
+                },
+                {
+                    "name": "Notification_WhatsApp_fsx",
+                    "type": "VARCHAR",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "RecordKey",
+                    "type": "CHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        36
+                    ]
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_628c72c31c5853ca81117a703980bac3",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_8554cf3889ac5966a96e1157ba5e86f9",
+                    "type": "INDEX",
+                    "columns": [
+                        "UserId"
+                    ]
+                },
+                {
+                    "name": "idx_521117dea6f7556699340a8a0f0e237d",
+                    "type": "INDEX",
+                    "columns": [
+                        "UserProfileId"
+                    ]
+                },
+                {
+                    "name": "fk_6553e3a73e765aa2ac007173d3eeefa3",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "UserProfileId"
+                    ],
+                    "referencedTable": "_AAA_UserProfile",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "NO ACTION",
+                    "onDelete": "NO ACTION"
+                },
+                {
+                    "name": "fk_8a4b1464d86c50718ccb9617d3a3aa29",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "UserId"
+                    ],
+                    "referencedTable": "_AAA_UserInfo",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "RESTRICT",
+                    "onDelete": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "views": []
+}
