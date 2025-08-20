@@ -1,0 +1,311 @@
+{
+    "tables": [
+        {
+            "name": "DataSyncSessions",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Actor",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "Status",
+                    "type": "TINYINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "Message",
+                    "type": "LONGTEXT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_f917c4e55f1c50a38be771fd570bab45",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "DataSyncInfo",
+            "configs": {
+                "guidColumnName": false,
+                "idColumnName": "Id",
+                "deletedColumnName": "RecordDeleted",
+                "createdAtColumnName": "CreatedAt_UTC",
+                "createdByColumnName": "CreatedBy",
+                "updatedAtColumnName": "ModifiedAt_UTC",
+                "updatedByColumnName": "ModifiedBy",
+                "deletedAtColumnName": false,
+                "deletedByColumnName": false
+            },
+            "columns": [
+                {
+                    "name": "Id",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": true,
+                    "unique": false,
+                    "autoIncrement": true,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "SessionId",
+                    "type": "BIGINT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "EntityName",
+                    "type": "VARCHAR",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        128
+                    ]
+                },
+                {
+                    "name": "SyncedUpToRecords",
+                    "type": "INT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "TotalSyncedRecords",
+                    "type": "INT",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": true,
+                    "zeroFill": false
+                },
+                {
+                    "name": "SourceLastModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "DestUpdateStartedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "DestModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": false,
+                    "default": "CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "CreatedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedAt_UTC",
+                    "type": "DATETIME",
+                    "nullable": true,
+                    "default": "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "ModifiedBy",
+                    "type": "BIGINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false
+                },
+                {
+                    "name": "RecordDeleted",
+                    "type": "TINYINT",
+                    "nullable": true,
+                    "primary": false,
+                    "unique": false,
+                    "autoIncrement": false,
+                    "unsigned": false,
+                    "zeroFill": false,
+                    "length": [
+                        1
+                    ]
+                }
+            ],
+            "constraints": [
+                {
+                    "name": "pri_cb1c216ae0ae597d93db692a4eb20d3d",
+                    "type": "PRIMARY KEY",
+                    "columns": [
+                        "Id"
+                    ]
+                },
+                {
+                    "name": "idx_ebe464ed0181597a92396c8fa68d514f",
+                    "type": "INDEX",
+                    "columns": [
+                        "SessionId"
+                    ]
+                },
+                {
+                    "name": "fk_6c37e5e86e455ba891fa82505b92e6f7",
+                    "type": "FOREIGN KEY",
+                    "columns": [
+                        "SessionId"
+                    ],
+                    "referencedTable": "DataSyncSessions",
+                    "referencedColumns": [
+                        "Id"
+                    ],
+                    "onUpdate": "RESTRICT",
+                    "onDelete": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "views": []
+}
